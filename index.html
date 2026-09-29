@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engagement de Confidentialité & Politique de Protection des Données</title>
+    <title>Mon Dépistage Cancer — Engagement de Confidentialité</title>
     <style>
         :root {
-            /* Modifiez vos codes couleurs ici */
-            --primary-color: #0d6efd;      /* Couleur principale (en-têtes, boutons) */
-            --secondary-color: #1e293b;    /* Couleur de texte principal */
-            --accent-color: #0284c7;       /* Couleur des liens / éléments mis en avant */
-            --bg-color: #f8fafc;           /* Fond de la page */
-            --card-bg: #ffffff;           /* Fond de la carte centrale */
-            --border-color: #e2e8f0;       /* Couleur des bordures et séparateurs */
+            /* Palette de couleurs de l'application Mon Dépistage Cancer */
+            --primary-navy: #1a365d;       /* Bleu Médical / Principal */
+            --pink-breast: #e91e63;        /* Rose - Dépistage Cancer du Sein */
+            --teal-colorectal: #00a896;    /* Turquoise - Dépistage Cancer Colorectal */
+            --purple-cervical: #6b21a8;    /* Violet - Dépistage Cancer du Col de l'utérus */
+            
+            --bg-light: #f4f7f6;           /* Fond de page neutre et apaisant */
+            --card-bg: #ffffff;            /* Fond des cartes */
+            --text-dark: #2d3748;          /* Texte principal */
+            --text-muted: #64748b;         /* Texte secondaire */
+            --border-color: #e2e8f0;       /* Bordures discrètes */
         }
 
         * {
@@ -23,45 +27,81 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--secondary-color);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
             padding: 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 40px auto;
             background: var(--card-bg);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
             border: 1px solid var(--border-color);
         }
 
+        /* En-tête avec bandeau tricolore thématique */
+        .header-bar {
+            height: 6px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--pink-breast) 0%, var(--teal-colorectal) 50%, var(--purple-cervical) 100%);
+            border-radius: 3px;
+            margin-bottom: 25px;
+        }
+
+        .app-badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: var(--primary-navy);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         h1 {
-            color: var(--primary-color);
-            font-size: 2em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
+            color: var(--primary-navy);
+            font-size: 2.1em;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .update-date {
             font-size: 0.9em;
-            color: #64748b;
+            color: var(--text-muted);
             margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
         }
 
         h2 {
-            color: var(--primary-color);
-            font-size: 1.3em;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            color: var(--primary-navy);
+            font-size: 1.35em;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: var(--teal-colorectal);
+            border-radius: 4px;
         }
 
         p, ul {
             margin-bottom: 15px;
+            font-size: 1rem;
         }
 
         ul {
@@ -69,76 +109,165 @@
         }
 
         li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
+        /* Badges fonctionnels aux couleurs des 3 dépistages */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .feature-card {
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            background-color: #f8fafc;
+        }
+
+        .feature-card.breast {
+            border-color: var(--pink-breast);
+        }
+
+        .feature-card.colorectal {
+            border-color: var(--teal-colorectal);
+        }
+
+        .feature-card.cervical {
+            border-color: var(--purple-cervical);
+        }
+
+        .feature-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--primary-navy);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        .highlight-box {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 5px solid var(--teal-colorectal);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .highlight-box strong {
+            color: #166534;
         }
 
         .contact-box {
-            background-color: var(--bg-color);
-            border-left: 4px solid var(--primary-color);
-            padding: 15px;
-            margin-top: 30px;
-            border-radius: 0 8px 8px 0;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: var(--teal-colorectal);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
             font-size: 0.85em;
-            color: #64748b;
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="header-bar"></div>
+    <span class="app-badge">Application Mobile</span>
     <h1>Engagement de Confidentialité</h1>
-    <p class="update-date">Dernière mise à jour : September 2026</p>
+    <p class="update-date">Application <strong>Mon Dépistage Cancer</strong> — Dernière mise à jour : 29 septembre 2026</p>
+
+    <div class="highlight-box">
+        <strong>Engagement Général :</strong> L'application <em>Mon Dépistage Cancer</em> est conçue comme un outil d'information, d'auto-évaluation et de rappel personnel. Aucune donnée médicale nominative ni aucun dossier médical n'est transmis à des tiers ou revendu à des fins commerciales.
+    </div>
 
     <section>
-        <h2>1. Introduction</h2>
-        <p>Nous accordons une importance capitale à la confidentialité et à la sécurité de vos données personnelles. La présente politique explique comment nous traitons vos informations.</p>
+        <h2>1. Présentation et Fonctionnalités</h2>
+        <p>L'application regroupe des outils d'information et d'accompagnement pour les trois programmes nationaux de dépistage organisé du cancer :</p>
+        
+        <div class="features-grid">
+            <div class="feature-card breast">
+                <h3>Cancer du Sein</h3>
+                <p>Évaluation de l'éligibilité (50-74 ans), informations sur la mammographie et rappels tous les 2 ans.</p>
+            </div>
+            <div class="feature-card colorectal">
+                <h3>Cancer Colorectal</h3>
+                <p>Information sur le test immunologique à domicile, modalités de commande et rappels biennois.</p>
+            </div>
+            <div class="feature-card cervical">
+                <h3>Col de l'Utérus</h3>
+                <p>Suivi des intervalles de frottis/test HPV (25-65 ans) et conseils de prévention/vaccination.</p>
+            </div>
+        </div>
     </section>
 
     <section>
-        <h2>2. Collecte des Données</h2>
-        <p>Afin de vous fournir le service le plus adapté, nous pouvons être amenés à recueillir les données suivantes :</p>
+        <h2>2. Données Traitées et Stockage Local</h2>
+        <p>Pour faire fonctionner les fonctionnalités personnalisées, l'application peut traiter locale-ment sur votre téléphone :</p>
         <ul>
-            <li>Informations fournies volontairement (ex. adresse e-mail, nom).</li>
-            <li>Données d'utilisation et logs techniques.</li>
+            <li><strong>Saisie de l'âge et du genre :</strong> Utilisés uniquement de manière algorithmique sur votre appareil pour déterminer vos échéances de dépistage.</li>
+            <li><strong>Rappels et Calendrier :</strong> Les dates de vos derniers examens et rappels sont enregistrées localement sur votre téléphone (stockage interne/Local Storage).</li>
+            <li><strong>Géolocalisation (Optionnelle) :</strong> Utilisée ponctuellement pour identifier les centres de radiologie, laboratoires ou structures de dépistage agréées autour de vous. Vos coordonnées GPS ne sont pas conservées.</li>
         </ul>
     </section>
 
     <section>
-        <h2>3. Utilisation des Données</h2>
-        <p>Vos données sont exclusivement utilisées pour :</p>
+        <h2>3. Absences de Collecte Médicale Centralisée</h2>
+        <p>L'application ne constitue pas un dossier médical partagé :</p>
         <ul>
-            <li>Assurer le bon fonctionnement de l'application / du service.</li>
-            <li>Améliorer l'expérience utilisateur et garantir la sécurité.</li>
+            <li>Nous ne créons aucun profil médical nominatif hébergé sur des serveurs externes.</li>
+            <li>Aucune donnée saisie dans les questionnaires d'éligibilité n'est croisée avec vos identifiants d'état civil.</li>
         </ul>
     </section>
 
     <section>
-        <h2>4. Sécurité des Données</h2>
-        <p>Toutes les données traitées font l'objet de mesures de sécurité strictes conformément à la réglementation en vigueur (RGPD).</p>
+        <h2>4. Autorisations de l'Appareil</h2>
+        <p>L'application peut demander l'accès à certaines fonctionnalités de votre smartphone :</p>
+        <ul>
+            <li><strong>Notifications :</strong> Pour vous envoyer des rappels d'échéance de dépistage. Vous pouvez les désactiver à tout moment.</li>
+            <li><strong>Localisation :</strong> Uniquement si vous recherchez un centre de santé à proximité.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Vos Droits (RGPD)</h2>
+        <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez du contrôle total sur vos données :</p>
+        <ul>
+            <li>Toutes les données stockées dans l'application peuvent être effacées à tout moment en supprimant l'application ou en vidant le cache du système.</li>
+        </ul>
     </section>
 
     <div class="contact-box">
-        <h2>Contact</h2>
-        <p>Pour toute question concernant cet engagement de confidentialité, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:contact@example.com">contact@example.com</a>.</p>
+        <h3>Une question concernant vos données ?</h3>
+        <p>Pour toute question relative à l'engagement de confidentialité de l'application, contactez le responsable du projet :</p>
+        <p style="margin-top: 10px;"><a href="mailto:franck.leduff@gmail.com">franck.leduff@gmail.com</a></p>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 — Tous droits réservés.
+    &copy; 2026 Mon Dépistage Cancer — Document d'engagement de confidentialité pour GitHub Pages & App Stores.
 </footer>
 
 </body>
